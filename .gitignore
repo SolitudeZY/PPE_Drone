@@ -49,3 +49,7 @@ Thumbs.db
 
 # ===== Claude Code =====
 .claude/
+
+# ===== 例外：保留目录结构 =====
+!.gitkeep
+!**/.gitkeep
