@@ -16,8 +16,8 @@ import torch
 from ultralytics import RTDETR, YOLO
 
 ROOT = Path(__file__).resolve().parents[1]
-DATA_YAML = ROOT / "datasets" / "20260506" / "data_local.yaml"
-RUNS_DIR = ROOT / "runs" / "ppe_v2"
+DATA_YAML = ROOT / "datasets" / "20260514" / "data_local.yaml"
+RUNS_DIR = ROOT / "runs" / "ppe_v3"
 
 # arch -> (weights file, loader class)
 _ARCH_TABLE: dict[str, tuple[str, type]] = {
