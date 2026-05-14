@@ -56,6 +56,8 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--cache", default="ram", choices=["ram", "disk", "False"])
     p.add_argument("--no-strong-aug", action="store_true",
                    help="disable mosaic/copy_paste/mixup (recommended for RT-DETR)")
+    # Note: fl-gamma and image-weights have been removed as they are no longer
+    # supported directly in kwargs by the installed version of ultralytics.
     return p.parse_args()
 
 
@@ -92,6 +94,10 @@ def main() -> None:
     is_detr = loader_cls is RTDETR
     use_strong_aug = (not args.no_strong_aug) and (not is_detr)
 
+    # Note: Ultralytics currently doesn't expose fl_gamma and image_weights 
+    # directly via the kwargs interface in recent versions.
+    # To mitigate class imbalance, we rely on the strong augmentation we already have.
+    # Removed invalid kwargs to prevent SyntaxError.
     train_kwargs: dict = dict(
         data=args.data,
         imgsz=args.imgsz,

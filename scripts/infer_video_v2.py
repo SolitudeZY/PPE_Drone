@@ -113,7 +113,7 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--vote-thresh", type=int, default=7)
     p.add_argument("--min-person-px", type=int, default=16)
     p.add_argument("--contain-thr", type=float, default=0.5)
-    p.add_argument("--save-dir", default=str(ROOT / "runs" / "ppe_v2" / "infer_v2" / time.strftime("%Y%m%d_%H%M%S")))
+    p.add_argument("--save-dir", default=str(ROOT / "runs" / "ppe_v3" / "infer_v2" / time.strftime("%Y%m%d_%H%M%S")))
     p.add_argument("--no-show", action="store_true")
     p.add_argument("--draw-ppe-boxes", action=argparse.BooleanOptionalAction,
                    default=True,
